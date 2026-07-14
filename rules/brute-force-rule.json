@@ -1,0 +1,15 @@
+{
+  "name": "Brute Force - Repeated Auth Failures",
+  "description": "Detects repeated authentication failures from a single source IP, indicating a brute force attempt (MITRE T1110.001)",
+  "type": "Threshold",
+  "severity": "High",
+  "mitre_technique": "T1110.001",
+  "conditions": {
+    "event_filter": {
+      "event_type": "login_failure"
+    },
+    "threshold": 10,
+    "window_seconds": 60,
+    "group_by": "source_ip"
+  }
+}
